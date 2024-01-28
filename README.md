@@ -1,5 +1,5 @@
 # UnityTTLibs
  
-## How to Install via UPM using GitHubURL
+## How to Install via git URL
 
-https://github.com/tatikun/UnityTTLibs.git?path=/Packages/TTLibs
+```https://github.com/tatikun/UnityTTLibs.git?path=/Packages/TTLibs```
