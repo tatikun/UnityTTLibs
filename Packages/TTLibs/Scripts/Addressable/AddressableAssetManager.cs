@@ -10,13 +10,12 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class AddressableAssetManager<Tkey, TValue> : IDisposable
 {
-    Dictionary<Tkey, TValue> assetDict = new Dictionary<Tkey, TValue>();
-    private AsyncOperationHandle<TValue> handle;
+    Dictionary<Tkey, AsyncOperationHandle<TValue>> assetDict = new ();
     public TValue GetValue(Tkey key)
     {
         if (assetDict.ContainsKey(key))
         {
-            return assetDict[key];
+            return assetDict[key].Result;
         }
         else
         {
@@ -28,11 +27,11 @@ public class AddressableAssetManager<Tkey, TValue> : IDisposable
     {
         if(!assetDict.ContainsKey(key))
         {
-            handle = Addressables.LoadAssetAsync<TValue>(key.ToString());
-            var result = await handle.Task;
+            var handle = Addressables.LoadAssetAsync<TValue>(key.ToString());
+            await handle.Task;
             if(handle.Status == AsyncOperationStatus.Succeeded)
             {
-                assetDict.Add(key, handle.Result);
+                assetDict.Add(key, handle);
                 return true;
             }
         }
@@ -42,6 +41,9 @@ public class AddressableAssetManager<Tkey, TValue> : IDisposable
     public void Dispose()
     {
         assetDict.Clear();
-        Addressables.Release(handle);
+        foreach (var handle in assetDict.Values)
+        {
+            Addressables.Release(handle);
+        }
     }
 }
