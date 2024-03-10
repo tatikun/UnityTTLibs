@@ -4,6 +4,7 @@ using UnityEngine;
 using TTLibs;
 using TTLibs.State;
 
+
 class HogeState : IState
 {
     public void Enter()
@@ -18,6 +19,7 @@ class HogeState : IState
 
     public void Update()
     {
+        
     }
 }
 class FugaState : IState
@@ -72,6 +74,11 @@ public class TestStateMachine : MonoBehaviour
             {
                 testStateMachine.ChangeState(hogeState);
             }
+        }
+
+        if(testStateMachine.CurrentState is HogeState)
+        {
+            transform.position += new Vector3(0.001f, 0.001f, 0);
         }
     }
 

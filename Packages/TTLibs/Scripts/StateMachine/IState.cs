@@ -7,8 +7,8 @@ namespace TTLibs.State
 {
     public interface IState
     {
-        public void Enter();
-        public void Exit();
-        public void Update();
+        public abstract void Enter();
+        public abstract void Exit();
+        public abstract void Update();
     }
 }
