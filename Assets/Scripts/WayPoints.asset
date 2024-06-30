@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abef6f1ca15777e4a902e82703be9d39, type: 3}
+  m_Name: WayPoints
+  m_EditorClassIdentifier: 
+  <Points>k__BackingField:
+  - Position: {x: -4.0777354, y: -0.7544136, z: 0}
+    Tag: 1
