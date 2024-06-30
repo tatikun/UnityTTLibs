@@ -10,6 +10,6 @@ public class PrefabAssetLoader : MonoBehaviour
     {
         await assetManager.LoadAssetAsync("tree");
         var tree = assetManager.GetValue("tree");
-        Instantiate(tree);
+        GameObjectExtension.InstantiateSafe(tree);
     }
 }
