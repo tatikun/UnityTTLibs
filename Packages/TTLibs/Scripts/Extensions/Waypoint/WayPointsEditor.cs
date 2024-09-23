@@ -3,6 +3,8 @@
 using UnityEditor;
 using UnityEngine;
 
+
+#if UNITY_EDITOR
 [CustomEditor(typeof(WayPoints))]
 public class WayPointsEditor : Editor
 {
@@ -100,3 +102,4 @@ public class WayPointsEditor : Editor
         }
     }
 }
+#endif // UNITY_EDITOR
